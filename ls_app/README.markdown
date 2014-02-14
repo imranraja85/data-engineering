@@ -1,13 +1,17 @@
-## Submission for LivingSocial's Challenge for Software Engineer
+### My Submission for LivingSocial's Challenge for Software Engineer
 
-Install gems
-  bundle install
+1) Install all gems
 
-Setup Database
-  rake db:setup
+  `bundle install`
 
-Launch!
-  rails s
+2) Create the database and load the schema
 
-Run Tests
-  rake test
+  `rake db:setup`
+
+3) Launch the application!
+
+  `rails s`
+
+4) Run Tests
+
+  `rake test`
