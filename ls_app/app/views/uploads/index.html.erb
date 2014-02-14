@@ -1,0 +1,29 @@
+<h1 class="lead">LivingSocial Acquisition Import</h1>
+<%= bootstrap_flash %>
+<%= form_for @upload, :multipart => true do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit 'Process File', :class => 'btn btn-success' %>
+<% end %>
+
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th># of Purchases</th>
+      <th>Gross Revenue</th>
+      <th>Created At</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Array(@uploads).each do |upload| %>
+      <tr>
+        <td><%= upload.filename %></td>
+        <td><%= upload.purchases_count %></td>
+        <td><%= number_to_currency(upload.gross_revenue) %></td>
+        <td><%= upload.created_at.strftime("%m/%d/%y %I:%M %p") %></td>
+        <td><%= link_to 'download file', download_upload_path(upload) %> | <%= link_to 'view file', upload.local_path.to_s %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
